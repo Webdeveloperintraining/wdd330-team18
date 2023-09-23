@@ -39,3 +39,12 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
     htmlStrings.join("")
   )
 }
+
+export function getNumFromCart(){
+  let num = "";
+  const list = getLocalStorage("so-cart")
+  if (list.length > 0){
+    num = list.length
+  }
+  document.querySelector(".cart-num").innerHTML = num
+}
