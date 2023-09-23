@@ -25,6 +25,10 @@ export default class ProductListing {
           </li>`
     }
     renderList(list){
-        renderListWithTemplate(this.productCardTemplate, this.listElement, list)
+        renderListWithTemplate(this.productCardTemplate, this.listElement, this.filterProducts(list))
+    }
+    filterProducts (list){
+        let filteredList = list.filter(tent => tent.FinalPrice != "179.99")
+        return filteredList
     }
 }
