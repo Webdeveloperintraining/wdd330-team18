@@ -29,3 +29,13 @@ export function getParam() {
 
   return product
 }
+// takes a template, html element and a JS list. It then adds those
+// list items to the html element using the template.
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+  const htmlStrings = list.map(templateFn);
+  if (clear){parentElement.textContent = ""}
+  parentElement.insertAdjacentHTML(
+    position,
+    htmlStrings.join("")
+  )
+}
