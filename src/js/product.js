@@ -8,7 +8,7 @@ const cartItems = getLocalStorage("so-cart") || [];
 
 function addProductToCart(product) {
   // Add new product to cart
-  cartItems.push(product);
+  cartItems.push(product); 
   setLocalStorage("so-cart", cartItems);
 }
 
