@@ -44,7 +44,7 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
 export function getNumFromCart(){
   let num = "";
   const list = getLocalStorage("so-cart")
-  if (list.length > 0){
+  if (list != null){
     num = list.length
   }
   document.querySelector(".cart-num").innerHTML = num
