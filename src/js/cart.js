@@ -13,7 +13,7 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider" id="${item.Id}" >
+  const newItem = `<li class="cart-card divider" >
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -26,7 +26,6 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <span class="x-btn" onclick= "removeItem('${item.Id}')" >X</span>
 </li>`;
   //getCartProductsId(item.Id); data-id="${item.Id}"
   /*if (!items.includes(item)){
