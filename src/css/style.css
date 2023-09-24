@@ -109,6 +109,15 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+.cart-num {
+  position: absolute;
+  right: -3px;
+  top: 10px;
+  width: 17px;
+  border-radius: 15px;
+  background-color: #f0a868;
+  color: purple;
+}
 
 /* End cart icon styles */
 

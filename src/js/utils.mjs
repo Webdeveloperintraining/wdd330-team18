@@ -21,3 +21,30 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+// pass parameters through the url
+export function getParam() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get("product")
+
+  return product
+}
+// takes a template, html element and a JS list. It then adds those
+// list items to the html element using the template.
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+  const htmlStrings = list.map(templateFn);
+  if (clear){parentElement.textContent = ""}
+  parentElement.insertAdjacentHTML(
+    position,
+    htmlStrings.join("")
+  )
+}
+
+export function getNumFromCart(){
+  let num = "";
+  const list = getLocalStorage("so-cart")
+  if (list.length > 0){
+    num = list.length
+  }
+  document.querySelector(".cart-num").innerHTML = num
+}
