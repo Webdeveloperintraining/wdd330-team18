@@ -41,7 +41,36 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   )
 }
 
-export function getNumFromCart(){
+// takes a template, html element and a JS object and places them in an html document
+export function renderWithTemplate(template, parentElement, data = {}, position = "afterbegin", clear = false){
+  parentElement.insertAdjacentHTML(
+    position,
+    template
+  )
+  //if (callback) {
+  //  callback(data)
+  //}
+}
+
+export async function loadHeaderFooter(){
+  const header = await loadTemplate("/partials/header.html")
+  const footer = await loadTemplate("/partials/footer.html")
+
+  const headerElement = document.getElementById("main-header")
+  const footerElement = document.getElementById("main-footer")
+
+  renderWithTemplate(header, headerElement)
+  renderWithTemplate(footer, footerElement)
+  getNumFromCart()
+}
+
+async function loadTemplate(path){
+  let html = await fetch(path)
+  const template = await html.text()
+  return template;
+}
+
+function getNumFromCart(){
   let num = "";
   const list = getLocalStorage("so-cart")
   if (list != null){
