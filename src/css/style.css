@@ -7,6 +7,7 @@
   --tertiary-color: #a4b8c4;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
+  --accent-color: #ef8a32;
 
   /* sizes */
   --font-base: 18px;
@@ -115,7 +116,7 @@ button {
   top: 10px;
   width: 17px;
   border-radius: 15px;
-  background-color: #f0a868;
+  background-color: var(--primary-color);
   color: purple;
 }
 
@@ -173,6 +174,15 @@ button {
 
 .product-detail img {
   width: 100%;
+}
+
+.total-price-label-color {
+  color: var(--dark-grey);
+  margin: 1rem;
+}
+
+.total-price-color {
+  color: var(--accent-color);
 }
 
 /* Start cart list card styles */
