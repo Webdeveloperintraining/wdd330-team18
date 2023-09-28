@@ -23,6 +23,17 @@ body {
   font-size: var(--font-base);
   color: var(--dark-grey);
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 2px;
+}
+
 img {
   max-width: 100%;
 }
@@ -155,6 +166,30 @@ button {
 .product-card h3,
 .product-card p {
   margin: 0.5em 0;
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.category li a {
+  color: #303030;
+  margin-top: 2px;
+  text-decoration: none;
+}
+
+.category li {
+  padding: 0.5em;
+  margin: 1em;
+  width: 150px;
+}
+
+.category-title {
+  text-transform: capitalize;
+  color: var(--accent-color);
 }
 
 .card__brand {
