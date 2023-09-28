@@ -1,6 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
-import { getNumFromCart } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 const dataSource = new ProductData("tents");
 const list = new ProductListing(
@@ -10,4 +10,4 @@ const list = new ProductListing(
 );
 
 list.init();
-getNumFromCart();
+loadHeaderFooter();
