@@ -19,9 +19,14 @@ export default class ProductListing {
             src="${product.Image}"
             alt="${product.Name}"
             />
-              <h3 class="card__brand">${product.Brand.Name}</h3>
-              <h2 class="card__name">${product.NameWithoutBrand}</h2>
-              <p class="product-card__price">$${product.FinalPrice}</p></a>
+            <div class="badge-overlay">
+            <span class="top-right badge">Sale</span></div>
+            <h3 class="card__brand">${product.Brand.Name}</h3>
+            <h2 class="card__name">${product.NameWithoutBrand}</h2>
+            <p class="product-card__price">
+              <span class="product-card__discount">$${product.SuggestedRetailPrice} </span>
+              $${product.FinalPrice}
+            </p>
           </li>`;
   }
   renderList(list) {
