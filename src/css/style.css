@@ -31,6 +31,15 @@ header {
   justify-content: space-between;
   padding: 0 10px;
 }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 2px;
+}
 .logo {
   line-height: 60px;
   width: 245px;
@@ -147,21 +156,18 @@ button {
 /* Styles for product icons*/
 .product-icon {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 .product-icon a {
   text-decoration: none;
   color: var(--dark-grey);
 }
 .icon {
-  flex: 1 1 45%;
-  margin: 0.25em;
   padding: 0.5em;
-  max-width: 250px;
-  text-align: center;
+  margin: 1em;
+  width: 150px;
 }
 
 /* Styles for product lists */
@@ -261,6 +267,12 @@ button {
 .card__name {
   font-size: 1em;
 }
+
+.category-title {
+  color: var(--accent-color);
+  text-transform: capitalize;
+}
+
 /* End product list card */
 
 .product-detail {
