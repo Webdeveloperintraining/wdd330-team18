@@ -9,8 +9,8 @@ export default class ProductListing {
   }
   async init() {
     this.list = await this.dataSource.getData(this.category);
-    this.sortProductList()
-    document.querySelector(".title").innerHTML = this.category;
+    this.sortProductList();
+    document.querySelector(".category-title").innerHTML = this.category;
   }
   productCardTemplate(product) {
     return `<li class="product-card">
@@ -41,28 +41,28 @@ export default class ProductListing {
     return filteredList;
   }
   sortProductList() {
-    const btnElement = document.getElementById("sortBtn")
-    this.list.sort(function(a, b){
-    return a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1
-    })
-    this.renderList(this.list)
+    const btnElement = document.getElementById("sortBtn");
+    this.list.sort(function (a, b) {
+      return a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1;
+    });
+    this.renderList(this.list);
 
     btnElement.addEventListener("click", () => {
       if (btnElement.getAttribute("class") == "sortAlpha") {
-        btnElement.setAttribute("class", "sortNum")
-        btnElement.innerHTML = "Sort alphabetically"
-        this.list.sort(function(a, b){
-          return a.FinalPrice - b.FinalPrice
-        })
+        btnElement.setAttribute("class", "sortNum");
+        btnElement.innerHTML = "Sort alphabetically";
+        this.list.sort(function (a, b) {
+          return a.FinalPrice - b.FinalPrice;
+        });
       } else {
-        btnElement.setAttribute("class", "sortAlpha")
-        btnElement.innerHTML = "Sort by price"
-        this.list.sort(function(a, b){
-          return a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1
-        })
+        btnElement.setAttribute("class", "sortAlpha");
+        btnElement.innerHTML = "Sort by price";
+        this.list.sort(function (a, b) {
+          return a.NameWithoutBrand > b.NameWithoutBrand ? 1 : -1;
+        });
       }
-      this.listElement.innerHTML = ""
+      this.listElement.innerHTML = "";
       this.renderList(this.list);
-    })
+    });
   }
 }
