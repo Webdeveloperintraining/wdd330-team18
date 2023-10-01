@@ -60,3 +60,4 @@ Team members should follow this process with each of the Trello tasks they compl
 - Joe Wallace
 - Angel Damian Escalante
 - Iago Cabral Lima
+- Okonkwo Godspower Onyebuchi
