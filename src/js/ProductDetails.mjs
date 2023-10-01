@@ -19,9 +19,32 @@ export default class ProductDetails {
   }
   addToCart() {
     let cart = getLocalStorage("so-cart") || [];
-    cart.push(this.product);
+
+    // Check if the product is already in the cart
+    const existingProductIndex = cart.findIndex(
+      (item) => item.Id === this.product.Id
+    );
+
+    if (existingProductIndex !== -1) {
+      // If the product is already in the cart, increment its quantity
+      cart[existingProductIndex].quantity =
+        (cart[existingProductIndex].quantity || 1) + 1;
+    } else {
+      // If the product is not in the cart, add it with quantity 1
+      this.product.quantity = 1;
+      cart.push(this.product);
+    }
+
+    // Update the final price based on quantity
+    if (cart[existingProductIndex]) {
+      cart[existingProductIndex].FinalPrice =
+        (cart[existingProductIndex].FinalPrice || 0) *
+        cart[existingProductIndex].quantity;
+    }
+
     setLocalStorage("so-cart", cart);
   }
+
   renderProductDetails(selector) {
     const product = this.product;
     const element = document.querySelector(selector);
