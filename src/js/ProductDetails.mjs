@@ -43,6 +43,7 @@ export default class ProductDetails {
     }
 
     setLocalStorage("so-cart", cart);
+    document.querySelector(".cart-num").innerHTML = getLocalStorage("so-cart").length;
   }
 
   renderProductDetails(selector) {
