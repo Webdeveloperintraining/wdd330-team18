@@ -402,6 +402,18 @@ button {
   }
 }
 
+/* Form Styles*/
+form fieldset{
+  display: flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+form fieldset input {
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
