@@ -402,6 +402,18 @@ button {
   }
 }
 
+form fieldset , form fieldset div,.checkout__name,.checkout__address{
+  display: flex;
+  flex-direction:column;
+  gap: 10px;
+  margin: 10px;
+  }
+
+  .formbtn{margin-bottom:10px; color:white;}
+
+  #checkoutSubmit,.btn{display: block; margin:auto; margin-bottom: 15px; width:15rem;background-color: #525b0f;}
+  .btn a{display:block;color: #fff; padding:1em; text-align: center; text-decoration: none;}
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
