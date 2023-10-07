@@ -44,6 +44,13 @@ export default class ProductDetails {
 
     setLocalStorage("so-cart", cart);
     document.querySelector(".cart-num").innerHTML = getLocalStorage("so-cart").length;
+    document.querySelector("div.cart").style.cssText = 
+  `position: relative;
+  animation-name: shoppingCart;
+  animation-duration: .35s;
+  animation-iteration-count: 5;`;
+  /*document.querySelector("div.cart").style.cssText = 
+  `animation: shoppingCart 0.35s 4;`;*/
   }
 
   renderProductDetails(selector) {
