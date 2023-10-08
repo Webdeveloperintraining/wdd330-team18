@@ -22,7 +22,7 @@ export default class ShoppingCart {
           if (e.target.tagName == "SPAN") {
             const cartId = item.id;
             item.remove();
-            const cart = getLocalStorage("so-cart");
+            let cart = getLocalStorage("so-cart");
             let newCart = [];
 
             cart.forEach(cartItem => {
@@ -32,7 +32,14 @@ export default class ShoppingCart {
             })
             setLocalStorage("so-cart", newCart)
             document.querySelector(".cart-num").innerHTML = getLocalStorage("so-cart").length;
-        }}
+            
+            cart = getLocalStorage("so-cart")
+            const totalPrice = cart.reduce(
+              (a, { FinalPrice }) => a + FinalPrice,
+              0
+            );
+            document.querySelector(".total-price-color").innerHTML = `$${totalPrice}`
+          }}
       )}
     )}
 
