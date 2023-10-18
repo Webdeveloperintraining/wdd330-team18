@@ -11,6 +11,3 @@ const list = new ProductListing(
 
 list.init();
 loadHeaderFooter();
-
-
-
