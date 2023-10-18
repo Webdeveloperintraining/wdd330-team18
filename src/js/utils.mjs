@@ -23,10 +23,10 @@ export function setClick(selector, callback) {
 }
 
 // pass parameters through the url
-export function getParam() {
+export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("product");
+  const product = urlParams.get(param);
 
   return product;
 }
@@ -110,4 +110,23 @@ export function setupRegistrationBanner() {
   if (!bannerDisplayed) {
     displayBanner();
   }
+
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}
+
+export function removeAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert))
 }
