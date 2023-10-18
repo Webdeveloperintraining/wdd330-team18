@@ -101,6 +101,7 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
 }
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -399,6 +400,31 @@ button {
 }
 .alert > p {
   margin: 0;
+}
+
+/* Newsletter styles */
+.newsletter {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  text-align: center;
+}
+.newsletter p {
+  margin-top: -20px;
+}
+
+.newsletter form input {
+  height: 3em;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: 2px solid #3a3a3a;
+  /* width: 50%; */
+}
+
+.sub-news {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
 }
 
 /* MEDIA QUERIES */
