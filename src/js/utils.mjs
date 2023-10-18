@@ -23,10 +23,10 @@ export function setClick(selector, callback) {
 }
 
 // pass parameters through the url
-export function getParam() {
+export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("product");
+  const product = urlParams.get(param);
 
   return product;
 }
@@ -48,30 +48,35 @@ export function renderListWithTemplate(
 
 // takes a template, html element and a JS list. It then adds those
 // list items to the html element using the template.
-export function renderWithTemplate(template, parentElement, data = {}, position = "afterbegin") {
+export function renderWithTemplate(
+  template,
+  parentElement,
+  data = {},
+  position = "afterbegin"
+) {
   parentElement.insertAdjacentHTML(position, template);
   //if (callback) {
   //  callback(data)
   //}
 }
 
-export async function loadHeaderFooter(){
-  const header = await loadTemplate("../partials/header.html")
-  const footer = await loadTemplate("../partials/footer.html")
+export async function loadHeaderFooter() {
+  const header = await loadTemplate("../partials/header.html");
+  const footer = await loadTemplate("../partials/footer.html");
 
-  const headerElement = document.getElementById("main-header")
-  const footerElement = document.getElementById("main-footer")
+  const headerElement = document.getElementById("main-header");
+  const footerElement = document.getElementById("main-footer");
 
-  renderWithTemplate(header, headerElement)
-  renderWithTemplate(footer, footerElement)
+  renderWithTemplate(header, headerElement);
+  renderWithTemplate(footer, footerElement);
 
-  getNumFromCart()
+  getNumFromCart();
 }
 
-async function loadTemplate(path){
-  let html = await fetch(path)
-  const template = await html.text()
-  return template
+async function loadTemplate(path) {
+  let html = await fetch(path);
+  const template = await html.text();
+  return template;
 }
 
 export function getNumFromCart() {
@@ -81,4 +86,24 @@ export function getNumFromCart() {
     num = list.length;
   }
   document.querySelector(".cart-num").innerHTML = num;
+}
+
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}
+
+export function removeAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
