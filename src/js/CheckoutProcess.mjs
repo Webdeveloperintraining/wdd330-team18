@@ -1,4 +1,9 @@
-import { setLocalStorage, getLocalStorage, alertMessage, removeAlerts } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  alertMessage,
+  removeAlerts,
+} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -93,10 +98,11 @@ export default class CheckoutProcess {
       removeAlerts();
       if (err.length > 1) {
         for (let message in err.message) {
+          console.log("err", err.message[message]);
           alertMessage(err.message[message]);
-        }}
-      else {
-        alertMessage(err.message)
+        }
+      } else {
+        alertMessage(err.message);
       }
       console.log(err);
     }
